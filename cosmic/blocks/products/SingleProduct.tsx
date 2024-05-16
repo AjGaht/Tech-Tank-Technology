@@ -5,6 +5,7 @@ import { Button } from "@/cosmic/elements/Button"
 import { ImageGallery } from "@/cosmic/blocks/image-gallery/ImageGallery"
 import { cn } from "@/cosmic/utils"
 import { notFound } from "next/navigation"
+import { MultiStepLoaderDemo } from "./multi-step-loader/MultiStepLoaderDemo"
 
 export async function SingleProduct({
   query,
@@ -66,6 +67,7 @@ export async function SingleProduct({
               <div className="mb-8">
                 <Button type="submit">Add to cart</Button>
               </div>
+              <MultiStepLoaderDemo/>
               <h2 className="mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Details
               </h2>

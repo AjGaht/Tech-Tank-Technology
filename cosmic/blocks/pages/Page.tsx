@@ -5,6 +5,8 @@ import { Section } from "./PageSection"
 import { cosmic } from "@/cosmic/client"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { GoogleGeminiEffectDemo } from "./Gemini_Ui/gemini_code"
+import { CardStackDemo } from "./card_stack/card_demo"
 
 export async function Page({
   query,
@@ -27,12 +29,12 @@ export async function Page({
         <div className="mx-auto flex w-full max-w-6xl flex-col-reverse justify-between p-4 pb-16 text-zinc-950 dark:text-zinc-50 md:flex-row md:gap-12">
           <div className="flex w-full flex-col items-start justify-start md:w-1/2">
             <div className="py-4 md:pt-20">
-              <h1 className="font-display text-4xl tracking-tight md:text-8xl">
+              <h1 className="font-semibold text-4xl tracking-tight md:text-5xl">
                 {page.metadata.h1}
               </h1>
             </div>
             <div className="pb-8">
-              <div className="text-xl text-zinc-700 dark:text-zinc-300">
+              <div className="text-zinc-700 dark:text-zinc-300">
                 {page.metadata.subheadline}
               </div>
             </div>
@@ -63,8 +65,8 @@ export async function Page({
               </div>
             </div>
           </div>
-          <div className="my-auto w-full px-4 md:w-1/2">
-            <img
+          <div className="my-auto w-full px-4 md:w-1/2 pb-10">
+            {/* <img
               src={`${page.metadata.image.imgix_url}?w=1600&auto=format,compression`}
               alt={page.title}
               className="w-full dark:hidden"
@@ -73,12 +75,13 @@ export async function Page({
               src={`${page.metadata.dark_image.imgix_url}?w=1600&auto=format,compression`}
               alt={page.title}
               className="hidden w-full dark:block"
-            />
+            /> */}
+            <CardStackDemo/>
           </div>
         </div>
         <section className="grid items-center bg-zinc-50 p-4 py-10 dark:bg-zinc-900">
           <div className="relative m-auto flex max-w-6xl flex-col items-start gap-2">
-            <h2 className="font-display m-auto max-w-[800px] pt-8 text-center text-3xl text-zinc-900 dark:text-zinc-100 md:text-6xl">
+            <h2 className="font-semibold m-auto max-w-[800px] pt-8 text-center text-3xl text-zinc-900 dark:text-zinc-100 md:text-4xl">
               {page.metadata.section_title}
             </h2>
             <div
@@ -89,6 +92,7 @@ export async function Page({
               {page.metadata.sections.map((section: any) => {
                 return <Section key={section.heading} section={section} />
               })}
+              <GoogleGeminiEffectDemo/>
             </div>
           </div>
         </section>

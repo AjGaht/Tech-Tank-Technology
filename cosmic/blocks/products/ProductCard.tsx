@@ -1,5 +1,7 @@
 // components/product-card.tsx
+"use client";
 import Link from "next/link"
+import { BackgroundGradient } from "./background-gradient/background-gradient"
 import { cn } from "@/cosmic/utils"
 
 export type ProductType = {
@@ -27,12 +29,15 @@ export function ProductCard({
       href={`/services/${product.slug}`}
       className={cn("group relative", className)}
     >
-      <div className="h-52 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+      <div>{/* <div className="h-52 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75"> || rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900 */}
+      <BackgroundGradient className="h-auto w-full overflow-hidden rounded-[22px] bg-white dark:bg-zinc-900 group-hover:opacity-75">
         <img
           src={`${product.metadata.image.imgix_url}?w=1200&auto=format,compression`}
           alt={product.title}
-          className="h-full w-full border border-zinc-100 object-cover object-center dark:border-zinc-800 lg:h-full lg:w-full"
+          className="h-full w-full object-cover object-center dark:border-zinc-800 lg:h-full lg:w-full"
+          // className="h-full w-full border border-zinc-100 object-cover object-center dark:border-zinc-800 lg:h-full lg:w-full"
         />
+      </BackgroundGradient>
       </div>
       <div className="mt-2 flex justify-between">
         <div>
